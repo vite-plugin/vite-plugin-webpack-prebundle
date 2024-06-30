@@ -86,8 +86,9 @@ export default function native(options: PrebundleOptions): Plugin {
       }
     },
     async config(config) {
+      // Not necessary, since bundle.js is wrapped in an immediately executed closure.
       modifyCommonjs(config, options.modules)
-      // Run build are not necessary.
+      // Not necessary, since Pre-Bundling is disabled by default in `vite build` command.
       modifyOptimizeDeps(config, options.modules)
     },
   }
