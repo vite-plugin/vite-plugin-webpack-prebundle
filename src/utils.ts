@@ -28,12 +28,28 @@ export function cjs2esm(id: string, code: string) {
   const snippet = libEsm({
     exports: Object.getOwnPropertyNames(cjs.require(id)),
   })
+  const commentsStart = '/* [webpack-prebundle]: start */'
+  const commentsEnd = '/* [webpack-prebundle]: end */'
+  const sourcemapURL = '//# sourceMappingURL='
+  const esmStart = [commentsStart, 'const module = { exports: {} };', commentsEnd].join('')
+  const esmEnd = [
+    commentsStart,
+    'const _M_ = module.exports;',
+    snippet.exports,
+    commentsEnd,
+  ].join('\n')
+
+  code = esmStart + code
+  const lines = code.split('\n')
+  let lastLine = lines[lines.length - 1]
+
+  if (lastLine.startsWith(sourcemapURL)) {
+    lines[lines.length - 1] = `${esmEnd}\n${lastLine}`
+    code = lines.join('\n')
+  } else {
+    code = `${code}\n${esmEnd}`
+  }
 
   // TODO: generate sourcemap for esm wrap-snippet
-  return `
-const module = { exports: {} };
-${code}
-const _M_ = module.exports;
-${snippet.exports}
-`
+  return code
 }
