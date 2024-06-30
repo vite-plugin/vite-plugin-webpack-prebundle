@@ -1,11 +1,11 @@
 # vite-plugin-webpack-prebundle
 
-A Webpack-based pre-bundle solution, mainly used for adapting Node.js and Electron.
+一个基于 Webpack 的预构建(pre-bundle) 方案, 主要用于适配 Node.js 和 Electron。
 
 [![NPM version](https://img.shields.io/npm/v/vite-plugin-webpack-prebundle.svg)](https://npmjs.org/package/vite-plugin-webpack-prebundle)
 [![NPM Downloads](https://img.shields.io/npm/dm/vite-plugin-webpack-prebundle.svg)](https://npmjs.org/package/vite-plugin-webpack-prebundle)
 
-English | [简体中文](./README.zh-CN.md)
+[English](./README.md) | 简体中文
 
 ## Install
 
@@ -42,9 +42,9 @@ export interface PrebundleOptions {
 
 ## Why
 
-This is a Pre-Bundle solution designed for Node/Electron Apps, which is consistent with Vite's built-in [Dependency Pre-Bundling](https://vitejs.dev/guide/dep-pre-bundling.html#dependency-pre-bundling) behavior. The reason for using Webpack is that it's currently the most compatible bundler for Node/Electron Apps.
+这是一个专为 Node/Electron 应用而生的 Pre-Bundling 方案，与 Vite 内置的 [Dependency Pre-Bundling](https://vitejs.dev/guide/dep-pre-bundling.html#dependency-pre-bundling) 行为一致。使用 Webpack 的原因是对于 Node/Electron 应用来说，它是目前兼容性最好的 Bundler。
 
-## Compare
+## 对比
 
 <table>
   <thead>
@@ -54,7 +54,7 @@ This is a Pre-Bundle solution designed for Node/Electron Apps, which is consiste
   </thead>
   <tbody>
     <tr>
-      <td>Vite's built-in Dependency Pre-Bundling</td>
+      <td>Vite 内置的 Dependency Pre-Bundling</td>
       <td>✅</td>
       <td>❌</td>
     </tr>
