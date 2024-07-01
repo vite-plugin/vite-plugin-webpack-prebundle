@@ -31,7 +31,7 @@ export function cjs2esm(id: string, code: string) {
   const commentsStart = '/* [webpack-prebundle]: start */'
   const commentsEnd = '/* [webpack-prebundle]: end */'
   const sourcemapURL = '//# sourceMappingURL='
-  const esmStart = [commentsStart, 'const module = { exports: {} };', commentsEnd].join('')
+  const esmStart = [commentsStart, 'const module = { exports: {} }; const exports = module.exports;', commentsEnd].join('')
   const esmEnd = [
     commentsStart,
     'const _M_ = module.exports;',
